@@ -136,18 +136,9 @@ h2 {
   animation: fall 10s linear infinite normal;
   -webkit-animation: fall 10s linear infinite normal;
 }
-@keyframes fall {
-  from {top: -20px;}
-  to   {top: 100%;}
-}
-
 .stage4 > .snow > div {
   animation: sway 2s ease-in-out infinite alternate;
   -webkit-animation: sway 2s ease-in-out infinite alternate;
-}
-@keyframes sway {
-  from {left: -2em;}
-  to   {left: 2em;}
 }
 
 .stage5 > .snow:nth-child(1),
@@ -184,6 +175,24 @@ h2 {
 }
 .stage6 > .snow > div {
   opacity: .2;
+}
+
+
+@keyframes fall {
+  from {top: -20px;}
+  to   {top: 100%;}
+}
+@-webkit-keyframes fall {
+  from {top: -20px;}
+  to   {top: 100%;}
+}
+@keyframes sway {
+  from {left: -2em;}
+  to   {left: 2em;}
+}
+@-webkit-keyframes sway {
+  from {left: -2em;}
+  to   {left: 2em;}
 }
 </style>
 </head>
@@ -306,6 +315,10 @@ h2 {
   from {top: -20px;}
   to   {top: 100%;}
 }
+@-webkit-keyframes fall {
+  from {top: -20px;}
+  to   {top: 100%;}
+}
 </code></pre>
 
 <div class="stage stage2 stage3">
@@ -331,6 +344,10 @@ h2 {
   -webkit-animation: sway 2s ease-in-out infinite alternate;
 }
 @keyframes sway {
+  from {left: -2em;}
+  to   {left: 2em;}
+}
+@-webkit-keyframes sway {
   from {left: -2em;}
   to   {left: 2em;}
 }

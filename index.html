@@ -103,8 +103,6 @@ h2 {
   height: 300px;
   background: rgba(0,0,0,.3);
 }
-.snow {
-}
 .snow > div {
   width: 2px;
   height: 2px;
@@ -328,9 +326,7 @@ h2 {
 <p>雪の外側が縦に移動しているので、その内側の本体を今度は横に移動させます。<br>
 2重構造になっていたのはこのためです。</p>
 
-<pre><code class="css hljs">.snow {
-  height: 100%;
-}
+<pre><code class="css hljs">
 .stage > .snow > div {
   animation: sway 2s ease-in-out infinite alternate;
   -webkit-animation: sway 2s ease-in-out infinite alternate;

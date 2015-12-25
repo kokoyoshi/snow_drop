@@ -1,0 +1,360 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/default.min.css">
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+
+<style>
+/*
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #f92672;
+}
+
+.hljs-symbol,
+.hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}
+
+body {
+  width: 650px;
+  margin: 60px auto;
+  background: #444;
+  color: #fff;
+}
+h2 {
+  margin-top: 80px;
+  line-height: 2.2em;
+  border-bottom: 1px solid #fff;
+}
+.stage {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background: #222;
+}
+.snow {
+  width: 100%;
+  height: 100%;
+}
+.snow > div {
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 3px #fff;
+}
+.stage2 {
+  margin-top: 60px;
+}
+
+.stage2 .snow {
+  position: absolute;
+}
+.stage2 .snow > div {
+  position: absolute;
+}
+.stage2 > .snow:nth-child(1)  {left:  5%;}
+.stage2 > .snow:nth-child(2)  {left: 15%;}
+.stage2 > .snow:nth-child(3)  {left: 20%;}
+.stage2 > .snow:nth-child(4)  {left: 25%;}
+.stage2 > .snow:nth-child(5)  {left: 35%;}
+.stage2 > .snow:nth-child(6)  {left: 45%;}
+.stage2 > .snow:nth-child(7)  {left: 55%;}
+.stage2 > .snow:nth-child(8)  {left: 75%;}
+.stage2 > .snow:nth-child(9)  {left: 85%;}
+.stage2 > .snow:nth-child(10) {left: 95%;}
+
+.stage3 > .snow {
+  animation: fall 10s linear infinite normal;
+  -webkit-animation: fall 10s linear infinite normal;
+}
+@keyframes fall {
+  from {top: -20px;}
+  to   {top: 100%;}
+}
+
+.stage4 > .snow > div {
+  animation: sway 2s ease-in-out infinite alternate;
+  -webkit-animation: sway 2s ease-in-out infinite alternate;
+}
+@keyframes sway {
+  from {left: -2em;}
+  to   {left: 2em;}
+}
+
+.stage5 > .snow:nth-child(1),
+.stage5 > .snow:nth-child(1) > div {animation-delay:7s,1000ms;-webkit-animation-delay:7s,1000ms;}
+.stage5 > .snow:nth-child(2),
+.stage5 > .snow:nth-child(2) > div {animation-delay:4s, 400ms;-webkit-animation-delay:4s, 400ms;}
+.stage5 > .snow:nth-child(3),
+.stage5 > .snow:nth-child(3) > div {animation-delay:2s,1200ms;-webkit-animation-delay:2s,1200ms;}
+.stage5 > .snow:nth-child(4),
+.stage5 > .snow:nth-child(4) > div {animation-delay:9s,1800ms;-webkit-animation-delay:9s,1800ms;}
+.stage5 > .snow:nth-child(5),
+.stage5 > .snow:nth-child(5) > div {animation-delay:1s, 200ms;-webkit-animation-delay:1s, 200ms;}
+.stage5 > .snow:nth-child(6),
+.stage5 > .snow:nth-child(6) > div {animation-delay:5s, 800ms;-webkit-animation-delay:5s, 800ms;}
+.stage5 > .snow:nth-child(7),
+.stage5 > .snow:nth-child(7) > div {animation-delay:3s,1600ms;-webkit-animation-delay:3s,1600ms;}
+.stage5 > .snow:nth-child(8),
+.stage5 > .snow:nth-child(8) > div {animation-delay:0s,   0ms;-webkit-animation-delay:0s,   0ms;}
+.stage5 > .snow:nth-child(9),
+.stage5 > .snow:nth-child(9) > div {animation-delay:6s,1400ms;-webkit-animation-delay:6s,1400ms;}
+.stage5 > .snow:nth-child(10),
+.stage5 > .snow:nth-child(10) > div {animation-delay:2s, 600ms;-webkit-animation-delay:2s, 600ms;}
+</style>
+</head>
+<body>
+<h1>CSSだけで雪を降らしてみる</h1>
+<h2>cap1.雪を作る</h2>
+<pre><code class="html">&lt;body&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<pre><code class="css hljs">.snow > div {
+  width: 2px;
+  height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 3px #fff;
+}
+</code></pre>
+
+<p>↓こんなのができます。</p>
+
+<div class="stage"><div class="snow"><div></div></div></div>
+
+<p>なぜdivが２重かはあとでわかります。</p>
+
+<h2>cap2.雪を並べる</h2>
+
+<p>position:absoluteでいい感じに並べます。</p>
+
+<pre><code class="html">&lt;body&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class="snow"&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<pre><code class="css hljs">
+.snow {
+  position: absolute;
+}
+body > .snow:nth-child(1)  {left:  5%;}
+body > .snow:nth-child(2)  {left: 15%;}
+body > .snow:nth-child(3)  {left: 20%;}
+body > .snow:nth-child(4)  {left: 25%;}
+body > .snow:nth-child(5)  {left: 35%;}
+body > .snow:nth-child(6)  {left: 45%;}
+body > .snow:nth-child(7)  {left: 55%;}
+body > .snow:nth-child(8)  {left: 75%;}
+body > .snow:nth-child(9)  {left: 85%;}
+</code></pre>
+
+<div class="stage stage2">
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+</div>
+
+<h2>cap3.雪を縦に移動させる</h2>
+
+<p>アニメーションを定義して無限に雪を縦に移動させます。</p>
+
+<pre><code class="css hljs">.snow {
+  animation: fall 10s linear infinite normal;
+  -webkit-animation: fall 10s linear infinite normal;
+}
+
+@keyframes fall {
+  from {top: -20px;}
+  to   {top: 100%;}
+}
+</code></pre>
+
+<div class="stage stage2 stage3">
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+</div>
+
+<h2>cap4.雪を横にゆらす</h2>
+
+<p>雪の外側が縦に移動しているので、その内側の本体を今度は横に移動させます。<br>
+2重構造になっていたのはこのためです。</p>
+
+<pre><code class="css hljs">.snow {
+  width: 100%;
+  height: 100%;
+}
+body > .snow > div {
+  animation: sway 2s ease-in-out infinite alternate;
+  -webkit-animation: sway 2s ease-in-out infinite alternate;
+}
+@keyframes sway {
+  from {left: -2em;}
+  to   {left: 2em;}
+}
+</code></pre>
+
+<div class="stage stage2 stage3 stage4">
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+</div>
+
+<h2>cap4.各雪のタイミングをずらす</h2>
+
+<p>いい感じに各雪のアニメーションに遅延を設定します。</p>
+
+<pre><code class="css hljs">body > .snow:nth-child(1),
+body > .snow:nth-child(1) > div {animation-delay:7s,1000ms;-webkit-animation-delay:7s,1000ms;}
+body > .snow:nth-child(2),
+body > .snow:nth-child(2) > div {animation-delay:4s, 400ms;-webkit-animation-delay:4s, 400ms;}
+body > .snow:nth-child(3),
+body > .snow:nth-child(3) > div {animation-delay:2s,1200ms;-webkit-animation-delay:2s,1200ms;}
+body > .snow:nth-child(4),
+body > .snow:nth-child(4) > div {animation-delay:9s,1800ms;-webkit-animation-delay:9s,1800ms;}
+body > .snow:nth-child(5),
+body > .snow:nth-child(5) > div {animation-delay:1s, 200ms;-webkit-animation-delay:1s, 200ms;}
+body > .snow:nth-child(6),
+body > .snow:nth-child(6) > div {animation-delay:5s, 800ms;-webkit-animation-delay:5s, 800ms;}
+body > .snow:nth-child(7),
+body > .snow:nth-child(7) > div {animation-delay:3s,1600ms;-webkit-animation-delay:3s,1600ms;}
+body > .snow:nth-child(8),
+body > .snow:nth-child(8) > div {animation-delay:0s,   0ms;-webkit-animation-delay:0s,   0ms;}
+body > .snow:nth-child(9),
+body > .snow:nth-child(9) > div {animation-delay:6s,1400ms;-webkit-animation-delay:6s,1400ms;}
+body > .snow:nth-child(10),
+body > .snow:nth-child(10) > div {animation-delay:2s, 600ms;-webkit-animation-delay:2s, 600ms;}
+</code></pre>
+
+<div class="stage stage2 stage3 stage4 stage5">
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+  <div class="snow"><div></div></div>
+</div>
+
+<p>完成です！<p>
+
+<h2>cap5.まとめ</h2>
+
+<p>雪の動きを、縦の動き、横の動き、タイミングの違いに分解して、順を追って実装していきました。<br>
+<br>
+今回は決め打ちの数値でランダム感を表現しましたが、さらにJavaScriptを使えば、実際にランダムに雪を生成することも可能です。<br>
+<br>
+一見複雑な動きでもこんなふうに単純な動きに分解して、順につくっていくと案外簡単に作れちゃいますよ( ´ ▽ ` )ﾉ<br>
+<br>
+</p>
+
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
